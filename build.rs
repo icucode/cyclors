@@ -1,6 +1,5 @@
 extern crate bindgen;
 
-use cmake;
 use std::env;
 use std::path::PathBuf;
 
@@ -28,6 +27,9 @@ fn main() {
         cyclonedds_lib.display()
     );
     println!("cargo:rustc-link-lib=static=ddsc");
+    println!("cargo:rustc-link-lib=static=ddsi");
+    println!("cargo:rustc-link-lib=static=ddsrt");
+    println!("cargo:rustc-link-lib=static=security_core");
 
     // Build cyclocut
     let cyclocut_dir = out_dir.join("cyclocut-build");
