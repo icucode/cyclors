@@ -2,8 +2,9 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(improper_ctypes)]
+#[link(name = "ddsrt", kind = "static")]
 
-pub const DDS_MIN_PSEUDO_HANDLE : dds_entity_t = 0x7fff0000 as dds_entity_t;
+pub const DDS_MIN_PSEUDO_HANDLE : dds_entity_t = 0x7fff0000;
 
 /* @defgroup builtintopic_constants Convenience constants for referring to builtin topics
  *
@@ -21,7 +22,7 @@ pub const DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION    : dds_entity_t = (DDS_MIN_PSEUDO
 /** Special handle representing the entity corresponding to the CycloneDDS library itself */
 pub const DDS_CYCLONEDDS_HANDLE                 : dds_entity_t = (DDS_MIN_PSEUDO_HANDLE + 256) as dds_entity_t;
 
-pub const DDS_DOMAIN_DEFAULT                : u32 = 0xffffffff as u32;
+pub const DDS_DOMAIN_DEFAULT                : u32 = 0xffffffff_u32;
 
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 

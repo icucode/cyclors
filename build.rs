@@ -53,6 +53,7 @@ fn main() {
 
     // Generate bindings
     let bindings = bindgen::Builder::default()
+        .size_t_is_usize(true)
         .header("wrapper.h")
         .clang_arg(format!("-I{}", cyclonedds_include.to_str().unwrap()))
         .clang_arg(format!("-I{}", cyclocut_include.to_str().unwrap()))
